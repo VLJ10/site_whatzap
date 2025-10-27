@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.section1 {
+    width: 20%;
+    height: 100%;
+    background-color: blue;
+    
+}
+.section2 {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(211, 122, 27);
+}
+.section1 header{
+    height: 180px;
+    width: 100%;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.section1 input{
+    height: 50px;
+    margin-top: 10px;
+    width: 90%;
+    border: none;
+    outline: none;
+}
+.usuario {
+    height: 100px;
+    width: 100%;
+    background-color: #EEEEEE;
+}
+.section2 header {
+    height: 100px;
+    width: 100%;
+    background-color: #EEEEEE;
+}
+
+.contato img {
+    width: 100px;
+    border-radius: 50%;
+}

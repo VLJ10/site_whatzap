@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+@import url('https://fonts.cdnfonts.com/css/glitch-goblin');
 body{
     height: 100vh;
     display: flex;
@@ -35,5 +36,12 @@ button{
     width: 200px;
     border-radius: 10px;
     border: none;
-
+}
+.message_erro {
+    font-family: 'Glitch Goblin', sans-serif;
+    height: 60px;
+    width: 25%;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
 }
