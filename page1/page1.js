@@ -22,12 +22,15 @@ async function exibirContatos(numeros) {
 
     const main = document.getElementById('main')
 
-    const containerContato = document.createElement('div')
-    containerContato.className = 'contato'
+
 
     let arrayContatos = await contato
 
-    arrayContatos.contatos.forEach(cont =>  {
+    arrayContatos.contatos.forEach(cont => {
+
+        const containerContato = document.createElement('div')
+        containerContato.className = 'contato'
+
         let img = document.createElement('img')
         img.src = `../img_contatos/${cont.imagem}`
 
@@ -44,11 +47,11 @@ async function exibirContatos(numeros) {
 
         containerInfo.append(nome, descricao)
         containerContato.append(img, containerInfo)
-        
+        main.append(containerContato)
 
 
     })
-    main.append(containerContato)
+
 
 
 }
