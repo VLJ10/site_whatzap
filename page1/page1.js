@@ -1,13 +1,14 @@
 'use strict'
 
 const numeros = JSON.parse(localStorage.getItem('numeroValido'))
-console.log(numeros)
+
+
+
 
 async function buscarTodosUsuario(numero) {
     try {
         const response = await fetch(`https://api-zaz.onrender.com/v1/whatzapp/usuario/contatos/${numero}`)
         const dados = await response.json()
-        console.log(dados)
         return dados
 
     } catch (erro) {
@@ -16,9 +17,22 @@ async function buscarTodosUsuario(numero) {
     }
 }
 
+
+async function buscarConversaExpecifica(numeros, contatoClick) {
+
+    const response = await fetch(`https://api-zaz.onrender.com/v1/whatzapp/usuario/expecific/messages?userNumber=${numeros}&contactNumber=${contatoClick}`)
+    const dados = await response.json()
+    console.log(dados)
+    return dados
+}
+
+
+
+
+
 async function exibirContatos(numeros) {
 
-    const contato = buscarTodosUsuario(numeros)
+    const contato = await buscarTodosUsuario(numeros)
 
     const main = document.getElementById('main')
 
@@ -45,14 +59,62 @@ async function exibirContatos(numeros) {
         descricao.className = 'descricao_contato'
         descricao.textContent = cont.descricao
 
+
+
         containerInfo.append(nome, descricao)
         containerContato.append(img, containerInfo)
         main.append(containerContato)
 
 
+        containerContato.addEventListener('click', async () => {
+            localStorage.setItem('numeroContato', JSON.stringify(cont.numero))
+            mostrarConversa()
+
+        })
     })
 
 
+
+}
+
+async function mostrarConversa() {
+
+
+    const contatoClick = JSON.parse(localStorage.getItem('numeroContato'))
+    console.log(contatoClick)
+
+    const mensagens = await buscarConversaExpecifica(numeros, contatoClick)
+
+    const mainSection2 = document.getElementById('messagem')
+
+    mainSection2.replaceChildren(  )
+    mensagens.trocaMensagem.mensagens.forEach(mensage => {
+
+
+        const containermMensagens = document.createElement('div')
+        containermMensagens.className = 'messagens'
+
+        const nome = document.createElement('h3')
+        nome.className = 'nome'
+        nome.textContent = mensage.remetente
+
+        const conteudo = document.createElement('p')
+        conteudo.className = 'conteudo'
+        conteudo.textContent = mensage.texto
+
+        const horario = document.createElement('p')
+        horario.className = 'hora'
+        horario.textContent = mensage.hora
+
+        if (mensage.remetente === numeros) {
+            containermMensagens.classList.add('usuario')
+        } else {
+            containermMensagens.classList.add('contato') 
+        }
+
+        containermMensagens.append(nome, conteudo, horario)
+        mainSection2.append(containermMensagens)
+    })
 
 }
 exibirContatos(numeros)
