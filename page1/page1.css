@@ -94,6 +94,8 @@ body{
     color: gray;
 }
 
+
+
 .contato img {
     width: 70px;
     height: 70px;
@@ -120,15 +122,17 @@ body{
 }
 
 /* Mensagens do usuário aparecem à direita */
-.mensagem.usuario {
-    background-color: #DCF8C6;
+.mensagem.usuarios {
+    height: 80px;
+    width: 95%;
+    background-color: #7efd1d;
     float: right;
     text-align: right;
 }
 
 /* Mensagens do contato aparecem à esquerda */
 .mensagem.contato {
-    background-color: #FFF;
+    background-color: #913c3c;
     float: left;
     text-align: left;
 }

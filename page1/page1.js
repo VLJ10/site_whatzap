@@ -106,8 +106,9 @@ async function mostrarConversa() {
         horario.className = 'hora'
         horario.textContent = mensage.hora
 
-        if (mensage.remetente === numeros) {
-            containermMensagens.classList.add('usuario')
+        if (mensage.remetente === 'me') {
+
+            containermMensagens.classList.add('usuarios')
         } else {
             containermMensagens.classList.add('contato') 
         }
