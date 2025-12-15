@@ -122,7 +122,7 @@ body{
 }
 
 /* Mensagens do usuário aparecem à direita */
-.mensagem.usuarios {
+.messagens.usuarios {
     height: 80px;
     width: 95%;
     background-color: #7efd1d;
@@ -174,4 +174,37 @@ footer img {
     width: 7%;
     display: flex;
     justify-content: space-between;
+}
+.messagens.usuarios {
+    background-color: #DCF8C6; /* cor de fundo típica de mensagens enviadas */
+    color: #000;               /* cor do texto */
+    padding: 10px 15px;        /* espaçamento interno */
+    margin: 5px 0;             /* espaçamento externo */
+    border-radius: 15px;       /* cantos arredondados */
+    max-width: 70%;            /* largura máxima */
+    align-self: flex-end;      /* alinha à direita em um container flex */
+    word-wrap: break-word;     /* quebra palavras longas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* leve sombra */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s; /* efeito ao mudar cor */
+  }
+  
+  .mensagem-usuario:hover {
+    background-color: #CFF1C0; /* muda um pouco a cor ao passar o mouse */
+  }
+  
+.messagens.contato {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 15px 15px 15px 0; /* cantos arredondados diferenciados */
+    max-width: 70%;
+    align-self: flex-start;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
